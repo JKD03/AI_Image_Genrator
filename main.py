@@ -1,6 +1,7 @@
 import os
 import openai
 import customtkinter as ctk
+from customtkinter import *
 import tkinter
 from PIL import Image, ImageTk
 import requests,io
@@ -62,14 +63,16 @@ prompt_entry.grid(row=0,column=1,padx=10,pady=10)
 dropdown_label = ctk.CTkLabel(input_frame,text="Style")
 dropdown_label.grid(row=1,column=0,padx=10,pady=10)
 list=["Realastic","Catroon","3D Illustration","Flat Art"]
-dropdown = ctk.CTkComboBox(input_frame,values=list)
+dropdown = ctk.CTkComboBox(input_frame,values=list,dropdown_hover_color="#2179bc")
 dropdown.grid(row=1,column=1,padx=10,pady=10)
 
 count_label = ctk.CTkLabel(input_frame,text="No. of Image")
 count_label.grid(row=2,column=0,padx=10,pady=10)
 count_no = ctk.CTkSlider(input_frame,from_=1,to=10,number_of_steps=9)
 count_no.grid(row=2,column=1,padx=10,pady=10)
-genrate_button = ctk.CTkButton(input_frame,text="Generate Images",command=generate)
+
+img1=Image.open("st1.png")
+genrate_button = ctk.CTkButton(input_frame,text="Generate Images",command=generate,hover_color="#144870",image=CTkImage(dark_image=img1))
 genrate_button.grid(row=3,column=0,columnspan=2,sticky="news",padx=10,pady=10)
 comment=ctk.CTkLabel(input_frame,text="Generating Images takes time")
 comment.grid(row=4,column=0,columnspan=2,sticky="news",padx=10,pady=10)
